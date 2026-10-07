@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dama Elegante - Moda para Toda Mujer</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Playfair+Display:ital,wght@1,700&display=swap');
+:root{--rosa-oscuro:#ff2d78;--rosa-claro:#ffe0ec;--lila:#8b5cf6;--dorado:#ffd60a;--turquesa:#00d9c0;--naranja:#ff6b35;--azul:#3b82f6;--texto:#2b1b2d;--sombra:0 10px 30px rgba(255,45,120,0.3);}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+html{scroll-behavior:smooth;}
+body{background-color:#fff5f8;background-image:linear-gradient(rgba(255,255,255,0.6),rgba(255,255,255,0.6)),url('fondo.jpeg');background-position:center;background-size:cover;background-repeat:no-repeat;background-attachment:fixed;color:var(--texto);}
+header{position:sticky;top:0;z-index:999;background:linear-gradient(90deg,var(--rosa-oscuro),var(--lila),var(--azul));background-size:200% 200%;animation:fluye 6s ease infinite;box-shadow:0 4px 20px rgba(139,92,246,0.4);}
+@keyframes fluye{0%,100%{background-position:0% 50%;}50%{background-position:100% 50%;}}
+.navbar{display:flex;align-items:center;justify-content:space-between;padding:14px 5%;}
+.logo{display:flex;align-items:center;gap:10px;color:#fff;font-weight:800;font-size:1.7rem;letter-spacing:1px;font-family:'Playfair Display',serif;font-style:italic;text-shadow:0 2px 12px rgba(255,255,255,0.5);}
+.logo span.icon{font-size:2rem;animation:balanceo 2.5s ease-in-out infinite;}
+@keyframes balanceo{0%,100%{transform:rotate(-8deg);}50%{transform:rotate(8deg);}}
+nav ul{list-style:none;display:flex;gap:28px;}
+nav ul li a{color:#fff;text-decoration:none;font-weight:700;font-size:.98rem;position:relative;padding:6px 2px;transition:color .3s;}
+nav ul li a::after{content:'';position:absolute;left:0;bottom:-4px;width:0%;height:3px;background:linear-gradient(90deg,var(--dorado),var(--turquesa));border-radius:3px;transition:width .3s;}
+nav ul li a:hover{color:var(--dorado);text-shadow:0 0 10px rgba(255,214,10,0.8);}
+nav ul li a:hover::after{width:100%;}
+.menu-toggle{display:none;flex-direction:column;cursor:pointer;gap:5px;}
+.menu-toggle span{width:26px;height:3px;background:#fff;border-radius:3px;}
+.hero{position:relative;height:88vh;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;overflow:hidden;background:linear-gradient(rgba(43,27,45,0.55),rgba(43,27,45,0.55));}
+
+@keyframes brillo{0%,100%{transform:translate(0,0);}50%{transform:translate(20px,-20px);}}
+.hero-contenido{position:relative;z-index:2;animation:aparecer 1.4s ease;}
+@keyframes aparecer{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
+.hero-contenido h1{font-family:'Playfair Display',serif;font-style:italic;font-weight:700;font-size:3.6rem;margin-bottom:14px;background:linear-gradient(90deg,#fff,var(--dorado),#fff);background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:brilloTexto 3s linear infinite;}
+@keyframes brilloTexto{0%{background-position:0% 50%;}100%{background-position:200% 50%;}}
+.hero-contenido p{font-size:1.35rem;margin-bottom:30px;font-weight:600;text-shadow:1px 1px 8px rgba(0,0,0,0.3);}
+.btn-dorado{background:linear-gradient(90deg,var(--dorado),var(--naranja),var(--rosa-oscuro));background-size:200% auto;color:#fff;padding:16px 40px;border:none;border-radius:30px;font-size:1.1rem;font-weight:800;cursor:pointer;box-shadow:0 8px 20px rgba(0,0,0,0.3);transition:transform .3s,box-shadow .3s;animation:fluye 3s ease infinite;text-shadow:1px 1px 4px rgba(0,0,0,0.3);}
+.btn-dorado:hover{transform:translateY(-6px) scale(1.08);box-shadow:0 14px 30px rgba(0,0,0,0.4);}
+.flotantes{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:1;}
+.flotantes span{position:absolute;font-size:2.2rem;opacity:.55;animation:flotar 7s ease-in-out infinite;filter:drop-shadow(0 4px 6px rgba(0,0,0,0.2));}
+@keyframes flotar{0%,100%{transform:translateY(0) rotate(0deg);}50%{transform:translateY(-35px) rotate(15deg);}}
+.flotantes span:nth-child(1){top:10%;left:8%;}
+.flotantes span:nth-child(2){top:65%;left:15%;animation-delay:1.2s;font-size:1.8rem;}
+.flotantes span:nth-child(3){top:20%;left:80%;animation-delay:.6s;}
+.flotantes span:nth-child(4){top:75%;left:85%;animation-delay:2s;font-size:2.6rem;}
+.flotantes span:nth-child(5){top:40%;left:45%;animation-delay:1.6s;font-size:1.6rem;}
+.flotantes span:nth-child(6){top:5%;left:50%;animation-delay:.9s;}
+.catalogo-flotantes{position:relative;}
+.catalogo-flotantes .flot-icono{position:absolute;font-size:1.8rem;opacity:.35;animation:flotar 6s ease-in-out infinite;z-index:0;}
+section{padding:70px 6%;position:relative;overflow:hidden;}
+.titulo-seccion{text-align:center;font-size:2.6rem;margin-bottom:10px;font-family:'Playfair Display',serif;font-style:italic;font-weight:700;background:linear-gradient(90deg,var(--rosa-oscuro),var(--lila),var(--azul));-webkit-background-clip:text;background-clip:text;color:transparent;position:relative;}
+.titulo-seccion::after{content:'';display:block;width:100px;height:5px;background:linear-gradient(90deg,var(--dorado),var(--rosa-oscuro),var(--turquesa));margin:14px auto 0;border-radius:6px;}
+.subtitulo{text-align:center;color:#7a5a80;margin-bottom:45px;font-size:1.1rem;font-weight:600;}
+.filtros{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-bottom:40px;position:relative;z-index:1;}
+.filtro-btn{background:#fff;border:2px solid var(--lila);color:var(--lila);padding:10px 22px;border-radius:22px;cursor:pointer;font-weight:700;transition:all .3s;box-shadow:0 4px 10px rgba(139,92,246,0.2);}
+.filtro-btn.activo,.filtro-btn:hover{background:linear-gradient(90deg,var(--rosa-oscuro),var(--lila));color:#fff;border-color:transparent;transform:translateY(-3px);box-shadow:0 8px 16px rgba(255,45,120,0.4);}
+.catalogo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:28px;position:relative;z-index:1;}
+.producto{background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 10px 25px rgba(139,92,246,0.2);transition:transform .35s,box-shadow .35s;position:relative;border:3px solid transparent;}
+.producto:hover{transform:translateY(-12px) scale(1.02);box-shadow:0 20px 40px rgba(255,45,120,0.4);border-color:var(--dorado);}
+.img-slot{height:230px;border-bottom:4px solid var(--dorado);background:linear-gradient(120deg,#ff9a9e,#fecfef,#ff9a9e);overflow:hidden;}
+.img-slot img{width:100%;height:100%;object-fit:cover;display:block;}
+.producto::before{content:'';position:absolute;top:0;left:-75%;width:50%;height:100%;background:linear-gradient(120deg,transparent,rgba(255,255,255,0.5),transparent);transform:skewX(-20deg);z-index:2;transition:left .6s;pointer-events:none;}
+.producto:hover::before{left:125%;}
+.info-producto{padding:16px 18px;}
+.info-producto h3{color:var(--rosa-oscuro);margin-bottom:6px;font-size:1.15rem;}
+.info-producto p{font-size:.9rem;color:#6b5459;margin-bottom:10px;}
+.etiqueta{position:absolute;top:12px;left:12px;background:var(--dorado);color:#3a2e33;font-size:.75rem;font-weight:bold;padding:5px 12px;border-radius:14px;z-index:3;box-shadow:0 4px 8px rgba(0,0,0,0.25);animation:pulsoE 1.8s infinite;}
+@keyframes pulsoE{0%,100%{transform:scale(1);}50%{transform:scale(1.08);}}
+.etiqueta.rosa{background:var(--rosa-oscuro);color:#fff;}
+.etiqueta.lila{background:var(--lila);color:#fff;}
+.etiqueta.turquesa{background:var(--turquesa);color:#fff;}
+.etiqueta.naranja{background:var(--naranja);color:#fff;}
+.btn-pedir{display:block;text-align:center;background:#25D366;color:#fff;text-decoration:none;font-weight:700;font-size:.9rem;padding:11px 14px;border-radius:22px;transition:transform .3s,box-shadow .3s;box-shadow:0 4px 10px rgba(37,211,102,0.4);}
+.btn-pedir:hover{transform:translateY(-3px);box-shadow:0 8px 16px rgba(37,211,102,0.5);}
+.promos-fondo{background:rgba(255,240,246,0.55);}
+.promos-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px;}
+.promo-card{background:#fff;border-radius:22px;padding:28px;box-shadow:0 12px 28px rgba(139,92,246,0.25);border-top:7px solid var(--dorado);transition:transform .3s,box-shadow .3s;position:relative;overflow:hidden;}
+.promo-card:nth-child(1){border-top-color:var(--rosa-oscuro);}
+.promo-card:nth-child(2){border-top-color:var(--turquesa);}
+.promo-card:nth-child(3){border-top-color:var(--lila);}
+.promo-card:hover{transform:scale(1.05) translateY(-6px);box-shadow:0 20px 40px rgba(255,45,120,0.35);}
+.promo-card .fecha{display:inline-block;background:linear-gradient(90deg,var(--rosa-oscuro),var(--lila));color:#fff;padding:7px 18px;border-radius:20px;font-weight:700;font-size:.85rem;margin-bottom:14px;box-shadow:0 4px 10px rgba(255,45,120,0.3);}
+.promo-card h3{color:var(--rosa-oscuro);margin-bottom:10px;font-size:1.4rem;font-family:'Playfair Display',serif;font-style:italic;}
+.promo-card ul{margin:10px 0 14px 18px;color:#5c464b;font-size:.95rem;line-height:1.7;}
+.promo-descuento{position:absolute;top:-10px;right:-10px;background:linear-gradient(135deg,var(--dorado),var(--naranja));color:#fff;font-weight:800;padding:16px 20px;border-radius:0 0 0 20px;font-size:1.2rem;box-shadow:-4px 4px 12px rgba(0,0,0,0.25);}
+.btn-ver-promo{background:linear-gradient(90deg,var(--rosa-oscuro),var(--lila));color:#fff;border:none;padding:12px 26px;border-radius:22px;cursor:pointer;font-weight:700;transition:transform .3s,box-shadow .3s;}
+.btn-ver-promo:hover{transform:translateY(-3px);box-shadow:0 8px 16px rgba(139,92,246,0.4);}
+.sobre-grid{display:flex;flex-wrap:wrap;align-items:center;gap:40px;}
+.sobre-texto{flex:1 1 380px;}
+.sobre-texto p{margin-bottom:16px;line-height:1.7;color:#5c464b;}
+.valores{display:flex;flex-wrap:wrap;gap:18px;margin-top:20px;}
+.valor-card{background:linear-gradient(135deg,#fff0f6,#f3e8ff);padding:20px;border-radius:16px;flex:1 1 140px;text-align:center;transition:transform .3s,box-shadow .3s;box-shadow:0 6px 16px rgba(139,92,246,0.2);border:2px solid transparent;}
+.valor-card:hover{transform:translateY(-8px) scale(1.05);border-color:var(--dorado);box-shadow:0 12px 24px rgba(255,214,10,0.3);}
+.valor-card .icono{font-size:2.2rem;margin-bottom:8px;display:block;animation:girar 4s ease-in-out infinite;}
+@keyframes girar{0%,100%{transform:rotate(-6deg) scale(1);}50%{transform:rotate(6deg) scale(1.1);}}
+.sobre-img{flex:1 1 300px;height:340px;border-radius:24px;background:linear-gradient(135deg,var(--lila),var(--rosa-oscuro),var(--turquesa));background-size:200% 200%;animation:fluye 8s ease infinite;display:flex;align-items:center;justify-content:center;color:#fff;font-size:5rem;box-shadow:0 16px 32px rgba(139,92,246,0.4);}
+.sobre-img{overflow:hidden;}
+.sobre-img img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;}
+.contacto-fondo{background:rgba(240,251,255,0.55);}
+.contacto-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:26px;margin-bottom:40px;}
+.contacto-card{background:#fff;padding:28px 20px;border-radius:18px;text-align:center;box-shadow:0 10px 24px rgba(139,92,246,0.2);transition:transform .3s,box-shadow .3s;border-bottom:5px solid var(--dorado);}
+.contacto-card:nth-child(1){border-bottom-color:var(--rosa-oscuro);}
+.contacto-card:nth-child(2){border-bottom-color:var(--lila);}
+.contacto-card:nth-child(3){border-bottom-color:var(--turquesa);}
+.contacto-card:nth-child(4){border-bottom-color:var(--naranja);}
+.contacto-card:nth-child(5){border-bottom-color:var(--azul);}
+.contacto-card:hover{transform:translateY(-10px) scale(1.03);box-shadow:0 16px 30px rgba(255,45,120,0.3);}
+.contacto-card .icono{font-size:2.6rem;margin-bottom:12px;animation:girar 4s ease-in-out infinite;}
+.contacto-card h4{color:var(--rosa-oscuro);margin-bottom:8px;font-weight:700;}
+.contacto-card a{color:#5c464b;text-decoration:none;font-size:.95rem;}
+.contacto-card a:hover{color:var(--rosa-oscuro);}
+.redes{display:flex;justify-content:center;flex-wrap:wrap;gap:16px;margin:30px 0;}
+.redes a{padding:14px 26px;border-radius:30px;font-weight:700;background:linear-gradient(135deg,var(--rosa-oscuro),var(--lila));color:#fff;display:flex;align-items:center;justify-content:center;font-size:1rem;text-decoration:none;transition:transform .3s,box-shadow .3s;box-shadow:0 6px 16px rgba(139,92,246,0.3);}
+.redes a:hover{transform:translateY(-8px) rotate(12deg) scale(1.1);box-shadow:0 12px 24px rgba(255,214,10,0.5);}
+.mapa-contenedor{border-radius:16px;overflow:hidden;box-shadow:var(--sombra);}
+.mapa-contenedor iframe{width:100%;height:320px;border:0;display:block;}
+.whatsapp-flotante{position:fixed;bottom:24px;right:24px;background:#25D366;color:#fff;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.8rem;text-decoration:none;box-shadow:0 8px 18px rgba(0,0,0,0.3);z-index:1000;animation:pulso 2s infinite;}
+@keyframes pulso{0%{box-shadow:0 0 0 0 rgba(37,211,102,0.6);}70%{box-shadow:0 0 0 14px rgba(37,211,102,0);}100%{box-shadow:0 0 0 0 rgba(37,211,102,0);}}
+footer{background:linear-gradient(90deg,var(--texto),#4a2b52,var(--texto));color:#fdeef3;text-align:center;padding:30px 6%;font-size:.95rem;}
+footer .icon{color:var(--dorado);}
+.fade-in{opacity:0;transform:translateY(40px);transition:opacity .8s,transform .8s;}
+.fade-in.visible{opacity:1;transform:translateY(0);}
+@media(max-width:850px){
+nav ul{position:absolute;top:100%;left:0;right:0;background:var(--rosa-oscuro);flex-direction:column;align-items:center;padding:20px 0;gap:18px;display:none;}
+nav ul.activo{display:flex;}
+.menu-toggle{display:flex;}
+.hero-contenido h1{font-size:2.2rem;}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="navbar">
+    <div class="logo">DAMA ELEGANTE</div>
+    <div class="menu-toggle" onclick="document.getElementById('menuLista').classList.toggle('activo')"><span></span><span></span><span></span></div>
+    <nav>
+      <ul id="menuLista">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#catalogo">Catálogo</a></li>
+        <li><a href="#promociones">Promociones</a></li>
+        <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section id="inicio" class="hero">
+  <div class="hero-contenido">
+    <h1>DAMA ELEGANTE</h1>
+    <p>Moda para cada etapa de tu vida: de niñas a mujeres</p>
+    <button class="btn-dorado" onclick="document.getElementById('catalogo').scrollIntoView({behavior:'smooth'})">Ver Catálogo</button>
+  </div>
+</section>
+
+<section id="catalogo" class="catalogo-flotantes">
+
+  <h2 class="titulo-seccion">Nuestro Catálogo</h2>
+  <p class="subtitulo">Ropa para niñas, jóvenes, adultas y mujeres mayores — encuentra tu estilo</p>
+
+  <div class="filtros">
+    <button class="filtro-btn activo" onclick="filtrar('todas', this)">Todas</button>
+    <button class="filtro-btn" onclick="filtrar('ninas', this)">Niñas</button>
+    <button class="filtro-btn" onclick="filtrar('jovenes', this)">Jóvenes</button>
+    <button class="filtro-btn" onclick="filtrar('adultas', this)">Adultas</button>
+    <button class="filtro-btn" onclick="filtrar('mayores', this)">Mujeres Mayores</button>
+  </div>
+
+  <div class="catalogo-grid" id="catalogoGrid">
+
+    <div class="producto" data-cat="ninas"><span class="etiqueta rosa">Nuevo</span>
+      <div class="img-slot"><img src="vestido2.jpg" alt="Vestido Floral Infantil"></div>
+      <div class="info-producto"><h3>Vestido Floral Infantil</h3><p>Tallas 4 a 10 años · Algodón suave</p><a class="btn-pedir" href="https://wa.me/59163442760?text=Hola%20Dama%20Elegante%2C%20quiero%20pedir%3A%20Vestido%20Floral%20Infantil%20%28Tallas%204%20a%2010%20a%C3%B1os%20%C2%B7%20Algod%C3%B3n%20suave%29.%20%C2%BFEst%C3%A1%20disponible%3F" target="_blank">Pedir por WhatsApp</a></div></div>
+
+    <div class="producto" data-cat="ninas"><span class="etiqueta turquesa">Popular</span>
+      <div class="img-slot"><img src="images.jpeg" alt="Conjunto Casual Niña"></div>
+      <div class="info-producto"><h3>Conjunto Casual Niña</h3><p>Tallas 6 a 12 años · Colores variados</p><a class="btn-pedir" href="https://wa.me/59163442760?text=Hola%20Dama%20Elegante%2C%20quiero%20pedir%3A%20Conjunto%20Casual%20Ni%C3%B1a%20%28Tallas%206%20a%2012%20a%C3%B1os%20%C2%B7%20Colores%20variados%29.%20%C2%BFEst%C3%A1%20disponible%3F" target="_blank">Pedir por WhatsApp</a></div></div>
+
+    <div class="producto" data-cat="ninas">
+      <div class="img-slot"><img src="faldas.jpeg" alt="Falda Tutú Princesa"></div>
+      <div class="info-producto"><h3>Falda Tutú Princesa</h3><p>Tallas 3 a 9 años · Ideal fiestas</p><a class="btn-pedir" href="https://wa.me/59163442760?text=Hola%20Dama%20Elegante%2C%20quiero%20pedir%3A%20Falda%20Tut%C3%BA%20Princesa%20%28Tallas%203%20a%209%20a%C3%B1os%20%C2%B7%20Ideal%20fiestas%29.%20%C2%BFEst%C3%A1%20disponible%3F" target="_blank">Pedir por WhatsApp</a></div></div>
+
+    <div class="producto" data-cat="ninas"><span class="etiqueta naranja">Abrigo</span>
+      <div class="img-slot"><img src="chaqueta.jpg" alt="Chaqueta Acolchada Niña"></div>
+      <div class="info-producto"><h3>Chaqueta Acolchada Niña</h3><p>Tallas 4 a 12 años · Cálida y liviana</p><a class="btn-pedir" href="https://wa.me/59163442760?text=Hola%20Dama%20Elegante%2C%20quiero%20pedir%3A%20Chaqueta%20Acolchada%20Ni%C3%B1a%20%28Tallas%204%20a%2012%20a%C3%B1os%20%C2%B7%20C%C3%A1lida%20y%20liviana%29.%20%C2%BFEst%C3%A1%20disponible%3F" target="_blank">Pedir por WhatsApp</a></div></div>
+
+    <div class="producto" data-cat="jovenes"><span class="etiqueta lila">Tendencia</span>
+      <div class="img-slot"><img src="blusa.jpeg" alt="Blusa Juvenil Moderna"></div>
+      <div class="info-producto"><h3>Blusa Juvenil Moderna</h3><p>Tallas S a L · Ideal para salidas</p><a class="btn-pedir" href="https://wa.me/59163442760?text=Hola%20Dama%20Elegante%2C%20quiero%20pedir%3A%20Blusa%20Juvenil%20Moderna%20%28Tallas%20S%20a%20L%20%C2%B7%20Ideal%20para%20salidas%29.%20%C2%BFEst%C3%A1%20disponible%3F" target="_blank">Pedir por WhatsApp</a></div></div>
+
+    <div class="producto" data-cat="jovenes">
+      <div class="img-slot"><img src="jean.jpeg" alt="Jean Tiro Alto"></div>
+      <div class="info-producto"><h3>Jean Tiro Alto</h3><p>Tallas 34 a 42 · Elástico y cómodo</p><a class="btn-pedir" href="https://wa.me/59163442760?text=Hola%20Dama%20Elegante%2C%20quiero%20pedir%3A%20Jean%20Tiro%20Alto%20%28Tallas%2034%20a%2042%20%C2%B7%20El%C3%A1stico%20y%20c%C3%B3modo%29.%20%C2%BFEst%C3%A1%20disponible%3F" target="_blank">Pedir por WhatsApp</a></div></div>
+
+    <div class="producto" data-cat="jovenes"><span class="etiqueta rosa">Verano</span>
+      <div class="img-slot"><img src="conjunto.jpg" alt="Conjunto Playero"></div>
+      <div class="info-producto"><h3>Conjunto Playero</h3><p>Tallas S a XL · Fresco y colorido</p><a class="btn-pedir" href="https://wa.me/59163442760?text=Hola%20Dama%20Elegante%2C%20quiero%20pedir%3A%20Conjunto%20Playero%20%28Tallas%20S%20a%20XL%20%C2%B7%20Fresco%20y%20colorido%29.%20%C2%BFEst%C3%A1%20disponible%3F" target="_blank">Pedir por WhatsApp</a></div></div>
+
+    <div class="producto" data-cat="jovenes"><span class="etiqueta turquesa">Casual</span>
+      <div class="img-slot"><img src="images2.jpeg" alt="Short y Top Combinado"></div>
+      <div class="info-producto"><h3>Short y Top Combinado</h3><p>Tallas XS a L · Estilo urbano</p><a class="btn-pedir" href="https://wa.me/59163442760?text=Hola%20Dama%20Elegante%2C%20quiero%20pedir%3A%20Short%20y%20Top%20Combinado%20%28Tallas%20XS%20a%20L%20%C2%B7%20Estilo%20urbano%29.%20%C2%BFEst%C3%A1%20disponible%3F" target="_blank">Pedir por WhatsApp</a></div></div>
+
+    <div class="producto" data-cat="adultas"><span class="etiqueta lila">Elegante</span>
+      <div class="img-slot"><img src="ad.jpg" alt="Vestido de Noche"></div>
+      <div class="info-producto"><h3>Vestido de Noche</h3><p>Tallas S a XL · Eventos especiales</p><a class="btn-pedir" href="https://wa.me/59163442760?text=Hola%20Dama%20Elegante%2C%20quiero%20pedir%3A%20Vestido%20de%20Noche%20%28Tallas%20S%20a%20XL%20%C2%B7%20Eventos%20especiales%29.%20%C2%BFEst%C3%A1%20disponible%3F" target="_blank">Pedir por WhatsApp</a></div></div>
+
+    <div class="producto" data-cat="adultas">
+      <div class="img-slot"><img src="ima1.jpeg" alt="Conjunto Ejecutivo"></div>
+      <div class="info-producto"><h3>Conjunto Ejecutivo</h3><p>Tallas S a XXL · Blazer y pantalón</p><a class="btn-pedir" href="https://wa.me/59163442760?text=Hola%20Dama%20Elegante%2C%20quiero%20pedir%3A%20Conjunto%20Ejecutivo%20%28Tallas%20S%20a%20XXL%20%C2%B7%20Blazer%20y%20pantal%C3%B3n%29.%20%C2%BFEst%C3%A1%20disponible%3F" target="_blank">Pedir por WhatsApp</a></div></div>
+
+    <div class="producto" data-cat="adultas"><span class="etiqueta naranja">Nuevo</span>
+      <div class="img-slot"><img src="vesti.jpg" alt="Vestido Casual de Día"></div>
+      <div class="info-producto"><h3>Vestido Casual de Día</h3><p>Tallas S a XXL · Cómodo y fresco</p><a class="btn-pedir" href="https://wa.me/59163442760?text=Hola%20Dama%20Elegante%2C%20quiero%20pedir%3A%20Vestido%20Casual%20de%20D%C3%ADa%20%28Tallas%20S%20a%20XXL%20%C2%B7%20C%C3%B3modo%20y%20fresco%29.%20%C2%BFEst%C3%A1%20disponible%3F" target="_blank">Pedir por WhatsApp</a></div></div>
+
+    <div class="producto" data-cat="adultas"><span class="etiqueta rosa">Moda</span>
+      <div class="img-slot"><img src="jum.jpg" alt="Jumpsuit Moderno"></div>
+      <div class="info-producto"><h3>Jumpsuit Moderno</h3><p>Tallas S a XL · Una sola pieza</p><a class="btn-pedir" href="https://wa.me/59163442760?text=Hola%20Dama%20Elegante%2C%20quiero%20pedir%3A%20Jumpsuit%20Moderno%20%28Tallas%20S%20a%20XL%20%C2%B7%20Una%20sola%20pieza%29.%20%C2%BFEst%C3%A1%20disponible%3F" target="_blank">Pedir por WhatsApp</a></div></div>
+
+    <div class="producto" data-cat="mayores"><span class="etiqueta turquesa">Confort</span>
+      <div class="img-slot"><img src="blu.jpeg" alt="Blusa Clásica Confort"></div>
+      <div class="info-producto"><h3>Blusa Clásica Confort</h3><p>Tallas M a XXL · Tela suave y liviana</p><a class="btn-pedir" href="https://wa.me/59163442760?text=Hola%20Dama%20Elegante%2C%20quiero%20pedir%3A%20Blusa%20Cl%C3%A1sica%20Confort%20%28Tallas%20M%20a%20XXL%20%C2%B7%20Tela%20suave%20y%20liviana%29.%20%C2%BFEst%C3%A1%20disponible%3F" target="_blank">Pedir por WhatsApp</a></div></div>
+
+    <div class="producto" data-cat="mayores">
+      <div class="img-slot"><img src="cha.jpeg" alt="Chaqueta Abrigo Elegante"></div>
+      <div class="info-producto"><h3>Chaqueta Abrigo Elegante</h3><p>Tallas M a XXL · Perfecta para el frío</p><a class="btn-pedir" href="https://wa.me/59163442760?text=Hola%20Dama%20Elegante%2C%20quiero%20pedir%3A%20Chaqueta%20Abrigo%20Elegante%20%28Tallas%20M%20a%20XXL%20%C2%B7%20Perfecta%20para%20el%20fr%C3%ADo%29.%20%C2%BFEst%C3%A1%20disponible%3F" target="_blank">Pedir por WhatsApp</a></div></div>
+
+    <div class="producto" data-cat="mayores"><span class="etiqueta lila">Suave</span>
+      <div class="img-slot"><img src="como.jpeg" alt="Vestido Cómodo Estampado"></div>
+      <div class="info-producto"><h3>Vestido Cómodo Estampado</h3><p>Tallas M a XXXL · Tela liviana</p><a class="btn-pedir" href="https://wa.me/59163442760?text=Hola%20Dama%20Elegante%2C%20quiero%20pedir%3A%20Vestido%20C%C3%B3modo%20Estampado%20%28Tallas%20M%20a%20XXXL%20%C2%B7%20Tela%20liviana%29.%20%C2%BFEst%C3%A1%20disponible%3F" target="_blank">Pedir por WhatsApp</a></div></div>
+
+    <div class="producto" data-cat="mayores"><span class="etiqueta naranja">Clásico</span>
+      <div class="img-slot"><img src="chompa1.jpg" alt="Saco Tejido Clásico"></div>
+      <div class="info-producto"><h3>Saco Tejido Clásico</h3><p>Tallas M a XXL · Ideal para el frío</p><a class="btn-pedir" href="https://wa.me/59163442760?text=Hola%20Dama%20Elegante%2C%20quiero%20pedir%3A%20Saco%20Tejido%20Cl%C3%A1sico%20%28Tallas%20M%20a%20XXL%20%C2%B7%20Ideal%20para%20el%20fr%C3%ADo%29.%20%C2%BFEst%C3%A1%20disponible%3F" target="_blank">Pedir por WhatsApp</a></div></div>
+
+    <div class="producto" data-cat="ninas"><span class="etiqueta rosa">Fiesta</span>
+      <div class="img-slot"><img src="vestido.jpeg" alt="Vestido de Fiesta Niña"></div>
+      <div class="info-producto"><h3>Vestido de Fiesta Niña</h3><p>Tallas 3 a 10 años · Brillante y suave</p><a class="btn-pedir" href="https://wa.me/59163442760?text=Hola%20Dama%20Elegante%2C%20quiero%20pedir%3A%20Vestido%20de%20Fiesta%20Ni%C3%B1a%20%28Tallas%203%20a%2010%20a%C3%B1os%20%C2%B7%20Brillante%20y%20suave%29.%20%C2%BFEst%C3%A1%20disponible%3F" target="_blank">Pedir por WhatsApp</a></div></div>
+
+    <div class="producto" data-cat="ninas">
+      <div class="img-slot"><img src="traje de baño.jpeg" alt="Traje de Baño Infantil"></div>
+      <div class="info-producto"><h3>Traje de Baño Infantil</h3><p>Tallas 2 a 10 años · Protección UV</p><a class="btn-pedir" href="https://wa.me/59163442760?text=Hola%20Dama%20Elegante%2C%20quiero%20pedir%3A%20Traje%20de%20Ba%C3%B1o%20Infantil%20%28Tallas%202%20a%2010%20a%C3%B1os%20%C2%B7%20Protecci%C3%B3n%20UV%29.%20%C2%BFEst%C3%A1%20disponible%3F" target="_blank">Pedir por WhatsApp</a></div></div>
+
+    <div class="producto" data-cat="ninas"><span class="etiqueta turquesa">Cómodo</span>
+      <div class="img-slot"><img src="pijama.jpeg" alt="Pijama Estampada Niña"></div>
+      <div class="info-producto"><h3>Pijama Estampada Niña</h3><p>Tallas 4 a 12 años · Algodón 100%</p><a class="btn-pedir" href="https://wa.me/59163442760?text=Hola%20Dama%20Elegante%2C%20quiero%20pedir%3A%20Pijama%20Estampada%20Ni%C3%B1a%20%28Tallas%204%20a%2012%20a%C3%B1os%20%C2%B7%20Algod%C3%B3n%20100%25%29.%20%C2%BFEst%C3%A1%20disponible%3F" target="_blank">Pedir por WhatsApp</a></div></div>
+
+    <div class="producto" data-cat="jovenes"><span class="etiqueta lila">Deportivo</span>
+      <div class="img-slot"><img src="pan.jpeg" alt="Conjunto Deportivo Fit"></div>
+      <div class="info-producto"><h3>Conjunto Deportivo Fit</h3><p>Tallas XS a XL · Tela transpirable</p><a class="btn-pedir" href="https://wa.me/59163442760?text=Hola%20Dama%20Elegante%2C%20quiero%20pedir%3A%20Conjunto%20Deportivo%20Fit%20%28Tallas%20XS%20a%20XL%20%C2%B7%20Tela%20transpirable%29.%20%C2%BFEst%C3%A1%20disponible%3F" target="_blank">Pedir por WhatsApp</a></div></div>
+
+    <div class="producto" data-cat="jovenes"><span class="etiqueta naranja">Nuevo</span>
+      <div class="img-slot"><img src="cho.jpg" alt="Chaqueta de Mezclilla"></div>
+      <div class="info-producto"><h3>Chaqueta de Mezclilla</h3><p>Tallas S a XL · Estilo urbano</p><a class="btn-pedir" href="https://wa.me/59163442760?text=Hola%20Dama%20Elegante%2C%20quiero%20pedir%3A%20Chaqueta%20de%20Mezclilla%20%28Tallas%20S%20a%20XL%20%C2%B7%20Estilo%20urbano%29.%20%C2%BFEst%C3%A1%20disponible%3F" target="_blank">Pedir por WhatsApp</a></div></div>
+
+    <div class="producto" data-cat="jovenes">
+      <div class="img-slot"><img src="cor.jpg" alt="Vestido Corto Casual"></div>
+      <div class="info-producto"><h3>Vestido Corto Casual</h3><p>Tallas S a L · Perfecto para salidas</p><a class="btn-pedir" href="https://wa.me/59163442760?text=Hola%20Dama%20Elegante%2C%20quiero%20pedir%3A%20Vestido%20Corto%20Casual%20%28Tallas%20S%20a%20L%20%C2%B7%20Perfecto%20para%20salidas%29.%20%C2%BFEst%C3%A1%20disponible%3F" target="_blank">Pedir por WhatsApp</a></div></div>
+
+    <div class="producto" data-cat="jovenes"><span class="etiqueta rosa">Trendy</span>
+      <div class="img-slot"><img src="crop.jpg" alt="Crop Top Estampado"></div>
+      <div class="info-producto"><h3>Crop Top Estampado</h3><p>Tallas XS a L · Combina con todo</p><a class="btn-pedir" href="https://wa.me/59163442760?text=Hola%20Dama%20Elegante%2C%20quiero%20pedir%3A%20Crop%20Top%20Estampado%20%28Tallas%20XS%20a%20L%20%C2%B7%20Combina%20con%20todo%29.%20%C2%BFEst%C3%A1%20disponible%3F" target="_blank">Pedir por WhatsApp</a></div></div>
+
+    <div class="producto" data-cat="adultas"><span class="etiqueta turquesa">Formal</span>
+      <div class="img-slot"><img src="vestido5.jpeg" alt="Vestido Formal Ajustado"></div>
+      <div class="info-producto"><h3>Vestido Formal Ajustado</h3><p>Tallas S a XXL · Elegancia total</p><a class="btn-pedir" href="https://wa.me/59163442760?text=Hola%20Dama%20Elegante%2C%20quiero%20pedir%3A%20Vestido%20Formal%20Ajustado%20%28Tallas%20S%20a%20XXL%20%C2%B7%20Elegancia%20total%29.%20%C2%BFEst%C3%A1%20disponible%3F" target="_blank">Pedir por WhatsApp</a></div></div>
+
+    <div class="producto" data-cat="adultas">
+      <div class="img-slot"><img src="abrigoo.jpeg" alt="Abrigo Largo Elegante"></div>
+      <div class="info-producto"><h3>Abrigo Largo Elegante</h3><p>Tallas S a XXL · Para el invierno</p><a class="btn-pedir" href="https://wa.me/59163442760?text=Hola%20Dama%20Elegante%2C%20quiero%20pedir%3A%20Abrigo%20Largo%20Elegante%20%28Tallas%20S%20a%20XXL%20%C2%B7%20Para%20el%20invierno%29.%20%C2%BFEst%C3%A1%20disponible%3F" target="_blank">Pedir por WhatsApp</a></div></div>
+
+    <div class="producto" data-cat="adultas"><span class="etiqueta lila">Verano</span>
+      <div class="img-slot"><img src="playero.jpeg" alt="Vestido Playero Fresco"></div>
+      <div class="info-producto"><h3>Vestido Playero Fresco</h3><p>Tallas S a XXL · Ligero y fluido</p><a class="btn-pedir" href="https://wa.me/59163442760?text=Hola%20Dama%20Elegante%2C%20quiero%20pedir%3A%20Vestido%20Playero%20Fresco%20%28Tallas%20S%20a%20XXL%20%C2%B7%20Ligero%20y%20fluido%29.%20%C2%BFEst%C3%A1%20disponible%3F" target="_blank">Pedir por WhatsApp</a></div></div>
+
+    <div class="producto" data-cat="adultas"><span class="etiqueta naranja">Básico</span>
+      <div class="img-slot"><img src="pantalon.jpg" alt="Pantalón Palazzo"></div>
+      <div class="info-producto"><h3>Pantalón Palazzo</h3><p>Tallas S a XXL · Fluido y cómodo</p><a class="btn-pedir" href="https://wa.me/59163442760?text=Hola%20Dama%20Elegante%2C%20quiero%20pedir%3A%20Pantal%C3%B3n%20Palazzo%20%28Tallas%20S%20a%20XXL%20%C2%B7%20Fluido%20y%20c%C3%B3modo%29.%20%C2%BFEst%C3%A1%20disponible%3F" target="_blank">Pedir por WhatsApp</a></div></div>
+
+    <div class="producto" data-cat="mayores"><span class="etiqueta rosa">Elegante</span>
+      <div class="img-slot"><img src="soprio.jpeg" alt="Vestido Largo Sobrio"></div>
+      <div class="info-producto"><h3>Vestido Largo Sobrio</h3><p>Tallas M a XXXL · Tela con caída</p><a class="btn-pedir" href="https://wa.me/59163442760?text=Hola%20Dama%20Elegante%2C%20quiero%20pedir%3A%20Vestido%20Largo%20Sobrio%20%28Tallas%20M%20a%20XXXL%20%C2%B7%20Tela%20con%20ca%C3%ADda%29.%20%C2%BFEst%C3%A1%20disponible%3F" target="_blank">Pedir por WhatsApp</a></div></div>
+
+    <div class="producto" data-cat="mayores">
+      <div class="img-slot"><img src="chaleco.jpeg" alt="Chaleco Tejido Suave"></div>
+      <div class="info-producto"><h3>Chaleco Tejido Suave</h3><p>Tallas M a XXL · Combina fácil</p><a class="btn-pedir" href="https://wa.me/59163442760?text=Hola%20Dama%20Elegante%2C%20quiero%20pedir%3A%20Chaleco%20Tejido%20Suave%20%28Tallas%20M%20a%20XXL%20%C2%B7%20Combina%20f%C3%A1cil%29.%20%C2%BFEst%C3%A1%20disponible%3F" target="_blank">Pedir por WhatsApp</a></div></div>
+
+    <div class="producto" data-cat="mayores"><span class="etiqueta turquesa">Cómodo</span>
+      <div class="img-slot"><img src="tunica.jpg" alt="Túnica Estampada"></div>
+      <div class="info-producto"><h3>Túnica Estampada</h3><p>Tallas M a XXXL · Fresca y holgada</p><a class="btn-pedir" href="https://wa.me/59163442760?text=Hola%20Dama%20Elegante%2C%20quiero%20pedir%3A%20T%C3%BAnica%20Estampada%20%28Tallas%20M%20a%20XXXL%20%C2%B7%20Fresca%20y%20holgada%29.%20%C2%BFEst%C3%A1%20disponible%3F" target="_blank">Pedir por WhatsApp</a></div></div>
+
+  </div>
+</section>
+
+<section id="promociones" class="promos-fondo">
+  <h2 class="titulo-seccion">Promociones</h2>
+  <p class="subtitulo">Aprovecha nuestras ofertas por tiempo limitado</p>
+  <div class="promos-grid">
+    <div class="promo-card">
+      <div class="promo-descuento">-30%</div>
+      <span class="fecha">Desde el 20 de septiembre</span>
+      <h3>Promo Primavera</h3>
+      <p>Prendas incluidas en esta promoción:</p>
+      <ul><li>Vestidos florales (niñas y jóvenes)</li><li>Blusas de temporada</li><li>Faldas casuales</li></ul>
+      <button class="btn-ver-promo" onclick="document.getElementById('catalogo').scrollIntoView({behavior:'smooth'})">Ver ropa relacionada</button>
+    </div>
+    <div class="promo-card">
+      <div class="promo-descuento">-25%</div>
+      <span class="fecha">Desde el 1 de octubre</span>
+      <h3>Promo Regreso a Clases</h3>
+      <p>Prendas incluidas en esta promoción:</p>
+      <ul><li>Conjuntos casuales para niñas</li><li>Chaquetas escolares</li><li>Blusas juveniles</li></ul>
+      <button class="btn-ver-promo" onclick="document.getElementById('catalogo').scrollIntoView({behavior:'smooth'})">Ver ropa relacionada</button>
+    </div>
+    <div class="promo-card">
+      <div class="promo-descuento">-40%</div>
+      <span class="fecha">Desde el 15 de octubre</span>
+      <h3>Promo Elegancia Total</h3>
+      <p>Prendas incluidas en esta promoción:</p>
+      <ul><li>Vestidos de noche</li><li>Conjuntos ejecutivos</li><li>Chaquetas de abrigo</li></ul>
+      <button class="btn-ver-promo" onclick="document.getElementById('catalogo').scrollIntoView({behavior:'smooth'})">Ver ropa relacionada</button>
+    </div>
+  </div>
+</section>
+
+<section id="sobre-nosotros">
+  <h2 class="titulo-seccion">Sobre Nosotros</h2>
+  <div class="sobre-grid">
+    <div class="sobre-texto">
+      <p><strong>Dama Elegante</strong> nació con el propósito de vestir a la mujer en cada etapa de su vida: desde las más pequeñas del hogar hasta las mujeres con más experiencia y estilo. Creemos que la elegancia no tiene edad, y por eso ofrecemos prendas de calidad, cómodas y a la moda para todas.</p>
+      <p>Contamos con un equipo apasionado por la moda femenina, siempre buscando las mejores telas, diseños y tendencias para que cada cliente se sienta única, cómoda y hermosa.</p>
+      <div class="valores">
+        <div class="valor-card"><strong>Calidad</strong></div>
+        <div class="valor-card"><strong>Elegancia</strong></div>
+        <div class="valor-card"><strong>Confianza</strong></div>
+        <div class="valor-card"><strong>Estilo</strong></div>
+      </div>
+    </div>
+    <div class="sobre-img"><img src="nosotras.jpeg" alt="Dama Elegante"></div>
+  </div>
+</section>
+
+<section id="contacto" class="contacto-fondo">
+  <h2 class="titulo-seccion">Contáctanos</h2>
+  <p class="subtitulo">Estamos felices de atenderte</p>
+  <div class="contacto-grid">
+    <div class="contacto-card"><h4>Teléfono</h4><a href="tel:+59163442760">+591 63442760</a></div>
+    <div class="contacto-card"><h4>Correo Electrónico</h4><a href="mailto:maribelaramayopaco@gmail.com">maribelaramayopaco@gmail.com</a></div>
+    <div class="contacto-card"><h4>WhatsApp</h4><a href="https://wa.me/59163442760?text=Hola%20Dama%20Elegante%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20prendas" target="_blank">Escríbenos ahora</a></div>
+    <div class="contacto-card"><h4>Dirección</h4><a href="https://www.google.com/maps/search/?api=1&query=Sopachuy%2C+Tomina%2C+Chuquisaca%2C+Bolivia" target="_blank">Sopachuy, Provincia Tomina, Chuquisaca, Bolivia</a></div>
+    <div class="contacto-card"><h4>Horario de Atención</h4><p>Lunes a Sábado: 9:00 am - 7:00 pm<br>Domingo: 10:00 am - 2:00 pm</p></div>
+  </div>
+  <div class="redes">
+    <a href="#" target="_blank" title="Facebook">Facebook</a>
+    <a href="#" target="_blank" title="Instagram">Instagram</a>
+    <a href="#" target="_blank" title="TikTok">TikTok</a>
+    <a href="https://wa.me/59163442760?text=Hola%20Dama%20Elegante%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20prendas" target="_blank" title="WhatsApp">WhatsApp</a>
+  </div>
+  <div class="mapa-contenedor">
+    <iframe src="https://www.google.com/maps?q=Sopachuy,+Tomina,+Chuquisaca,+Bolivia&output=embed" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+</section>
+
+<a href="https://wa.me/59163442760?text=Hola%20Dama%20Elegante%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20prendas" class="whatsapp-flotante" target="_blank" title="Escríbenos por WhatsApp"><svg viewBox="0 0 24 24" width="32" height="32" fill="#fff" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm4.9 13.6c-.2.6-1.2 1.100-1.700 1.200-.4.100-1 .1-1.600-.1-.4-.1-.9-.3-1.500-.6-2.600-1.100-4.300-3.700-4.400-3.900-.1-.2-1-1.300-1-2.500s.6-1.800.9-2c.2-.2.500-.3.700-.3h.5c.2 0 .4 0 .6.500l.8 1.900c.1.200.1.400 0 .6l-.3.500-.4.400c-.1.100-.3.300-.1.600.2.300.7 1.100 1.500 1.800 1 .9 1.900 1.200 2.200 1.300.3.100.4.100.6-.1l.8-.9c.2-.3.400-.2.600-.1l1.800.9c.3.100.4.200.5.300.1.200.1.700-.1 1.300z"/></svg></a>
+
+<footer>
+  <p>Dama Elegante © 2026 — Moda para toda mujer, en cada etapa de la vida.</p>
+</footer>
+
+<script>
+function filtrar(cat, btn){
+  document.querySelectorAll('.filtro-btn').forEach(b=>b.classList.remove('activo'));
+  btn.classList.add('activo');
+  document.querySelectorAll('.producto').forEach(p=>{
+    p.style.display = (cat==='todas' || p.dataset.cat===cat) ? 'block' : 'none';
+  });
+}
+const elementos = document.querySelectorAll('section');
+elementos.forEach(el=>el.classList.add('fade-in'));
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); } });
+},{threshold:0.05});
+elementos.forEach(el=>observer.observe(el));
+document.querySelectorAll('#menuLista a').forEach(link=>{
+  link.addEventListener('click',()=>document.getElementById('menuLista').classList.remove('activo'));
+});
+</script>
+
+</body>
+</html>
